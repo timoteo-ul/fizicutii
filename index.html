@@ -154,6 +154,66 @@
 </head>
 <body>
     <nav>
+        <div id="hamburger-menu" onclick="toggleMenu()">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <div id="mobile-menu" class="hidden">
+            <a href="#acasa" onclick="showPage('acasa'); toggleMenu()">Acasa</a>
+            <a href="#electricitate" onclick="showPage('electricitate'); toggleMenu()">Electricitate</a>
+            <a href="#termodinamica" onclick="showPage('termodinamica'); toggleMenu()">Termodinamica</a>
+            <a href="#mecanica" onclick="showPage('mecanica'); toggleMenu()">Mecanica</a>
+            <a href="#optica" onclick="showPage('optica'); toggleMenu()">Optica</a>
+        </div>
+        <style>
+            #hamburger-menu {
+                display: none;
+                flex-direction: column;
+                gap: 5px;
+                cursor: pointer;
+                position: absolute;
+                top: 20px;
+                left: 20px;
+                z-index: 1100;
+            }
+
+            #hamburger-menu span {
+                width: 30px;
+                height: 3px;
+                background-color: black;
+                border-radius: 2px;
+            }
+
+            #mobile-menu {
+                display: flex;
+                flex-direction: column;
+                gap: 20px;
+                position: absolute;
+                top: 60px;
+                left: 20px;
+                background-color: white;
+                padding: 20px;
+                box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+                z-index: 1000;
+            }
+
+            @media (max-width: 768px) {
+                nav {
+                    display: none;
+                }
+
+                #hamburger-menu {
+                    display: flex;
+                }
+            }
+        </style>
+        <script>
+            function toggleMenu() {
+                const menu = document.getElementById('mobile-menu');
+                menu.classList.toggle('hidden');
+            }
+        </script>
         <a href="#acasa" onclick="showPage('acasa')">Acasa</a>
         <a href="#electricitate" onclick="showPage('electricitate')">Electricitate</a>
         <a href="#termodinamica" onclick="showPage('termodinamica')">Termodinamica</a>
